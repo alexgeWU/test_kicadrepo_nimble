@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with: { fetch-depth: 0 }
+        with: { fetch-depth: 0 } # Crucial: fetches history to compare against
+        
       - uses: sksat/kicadiff@v0.2.0
         with:
           pr-comment: 'true'
+          # Force visual generation and attach images to the Job Summary/PR
+          upload-artifacts: 'true'
+          visual-diff: 'true' 
