@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ["**/*.kicad_pcb", "**/*.kicad_sch"]
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 jobs:
   diff:
@@ -16,3 +16,5 @@ jobs:
         with:
           pr-comment: 'true'
           upload-artifact: 'true'
+          image-host: 'github-pages'
+          image-host-path: 'vdiff-cache'
